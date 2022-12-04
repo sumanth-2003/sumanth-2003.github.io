@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        <div id="div">table will come here</div>
+        <input type="button" value="click to see table" id="btn">
+    </div>
+
+
+    <style>
+        #div1 {
+
+            padding-top: 25%;
+            padding-left: 50%;
+
+
+        }
+
+        table,
+        th,
+        td {
+            border-collapse: collapse;
+            border: 1px solid;
+        }
+    </style>
+    <script>
+        const btn = document.getElementById("btn");
+        const div = document.getElementById("div");
+        const names = ["Anakin", "Obi-Wan", "Luke", "Leia"];
+        btn.addEventListener("click", changeTable);
+        function changeTable() {
+            if (div.innerText == "table will come here") {
+
+               let data = `
+                <table>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Names</th>
+                    </tr>   
+                `
+                for (let i = 0; i < names.length; i++) {
+
+
+                    data += `
+                    
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td>${names[i]}</td>
+                        </tr>`
+                }
+
+                data += `</table>`;
+                div.innerHTML=data;
+            }
+
+            else {
+
+                div.innerText = "table will come here";
+
+            }
+
+
+        }
+
+    </script>
+</body>
+
+</html>
